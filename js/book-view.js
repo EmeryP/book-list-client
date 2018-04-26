@@ -1,5 +1,4 @@
 
-const app = {};
 
 (function(module){ //wrapping all function is IFFE
 
@@ -48,11 +47,11 @@ const app = {};
     };
 
     $.post(`${ENV.apiUrl}/api/v1/books`, book)
-      .then(app.Book.fetchAll(booksView.initIndexPage))
+      .then(app.Book.fetchAll(bookView.initIndexPage))
       .catch(console.error);
 
   }
 
-  module.booksView = booksView;
+  module.bookView = bookView;
 
 })(app);
