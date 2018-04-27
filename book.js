@@ -42,15 +42,15 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
       .catch(errorCallback);
   };
 
-  Book.fetchOne = (callback, ctx) => { //defining static method fetchall which takes callback as arguement
-    $.get(`${ENV.apiUrl}/api/v1/books/${ctx}.params.book_id`) //make request to the API at GET to this filepath
-      .then(Book.loadAll) //on success, pass the results to Book.all
-      .then(callback)//invoke callback; define this function!!!!!! initIndexPage is the callback being passed in here
-      .catch(errorCallback);
-  };
+  // Book.fetchOne = (callback, ctx) => { //defining static method fetchall which takes callback as arguement
+  //   $.get(`${ENV.apiUrl}/api/v1/books/${ctx}.params.book_id`) //make request to the API at GET to this filepath
+  //     .then(Book.loadAll) //on success, pass the results to Book.all
+  //     .then(callback)//invoke callback; define this function!!!!!! initIndexPage is the callback being passed in here
+  //     .catch(errorCallback);
+  // };
 
   Book.add = book => {
-    $.post(`${ENV.apiUrl}/api/v1/books`, book)
+    $.post(`${ENV.apiUrl}/books/add`, book)
       .then(() => page('/'))
       .catch(errorCallback);
   };
@@ -64,17 +64,3 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
 })(app);
 
-//errorView.js, goes on different page
-// (function(module){
-//   var errorView = {};
-//   errorView.initErrorPage = err =>{
-//     $('.container').hide();
-//     $('.error-view').show();
-//     $('#error-message').empty();
-
-//     var template = Handlebars.compile($('#error-template').text());
-
-//     $('#error-message').append(template(err));
-//     //more error stuff going on here
-//   }
-// }
