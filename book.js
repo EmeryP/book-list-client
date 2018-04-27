@@ -1,6 +1,6 @@
 'use strict';
 
-var app = {}; //input comes from the IFFE
+var app = app || {}; //input comes from the IFFE
 
 //define a global variable called bookView and assign an empty object literal its value
 
@@ -35,17 +35,19 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     console.log(Book.all);
   };
 
-  Book.fetchAll = callback => { //defining static method fetchall which takes callback as arguement
+  Book.fetchAll = (callback) => { //defining static method fetchall which takes callback as arguement
     $.get(`${ENV.apiUrl}/api/v1/books`) //make request to the API at GET to this filepath
       .then(Book.loadAll) //on success, pass the results to Book.all
       .then(callback)//invoke callback; define this function!!!!!! initIndexPage is the callback being passed in here
       .catch(errorCallback);
   };
 
-  Book.fetchOne = (callback, ctx) => { //defining static method fetchall which takes callback as arguement
-    $.get(`${ENV.apiUrl}/api/v1/books/${ctx}.params.book_id`) //make request to the API at GET to this filepath
-      .then(Book.loadAll) //on success, pass the results to Book.all
+  Book.fetchOne = (ctx, callback) => { //defining static method fetchall which takes callback as arguement
+    console.log('context', ctx)
+    $.get(`${ENV.apiUrl}/api/v1/books/${ctx.params.id}`) //make request to the API at GET to this filepath
+      .then(result => ctx.book = result[0]) //on success, pass the results to Book.all
       .then(callback)//invoke callback; define this function!!!!!! initIndexPage is the callback being passed in here
+      .then(console.log('I come from the fetchOne'))
       .catch(errorCallback);
   };
 

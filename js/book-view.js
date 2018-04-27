@@ -26,15 +26,19 @@ var app = app || {};
     show('add');
   };
 
+
+  //does this need an event listener??? no, it's a page js thing
   bookView.initBookPage = function(ctx){
-    console.log('view book ', ctx.params.id);
+    // console.log('view book ', ctx.params.id);
     $('#book').empty();
     show('book');
-    app.Book.all.forEach(book => {
-      if(parseInt(book.book_id) === parseInt(ctx.params.id)){
-        $('#book').append(book.detailToHtml());
-      }
-    });
+    // app.Book.all.forEach(book => {
+    //   if(parseInt(book.id) === parseInt(ctx.params.id)){
+    //     $('#book').append(book.detailToHtml());
+    //   }
+    // });
+    let template = Handlebars.compile($('#book-detail-template').text());
+    $('#book').append(template(ctx));
   };
 
   // $('#add form').on('submit', createNewBook);
