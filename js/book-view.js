@@ -4,14 +4,14 @@ var app = app || {};
 
 (function(module){ //wrapping all function is IFFE
 
-  const booksView = {};
+  const bookView = {};
 
   function show(section){
     $('section').not(`#${section}`).hide();
     $(`#${section}`).show();
   }
 
-  booksView.initIndexPage = function(ctx) {
+  bookView.initIndexPage = function(ctx) {
     console.log('index');
     $('#items ul').empty();
     show('items');
@@ -21,20 +21,21 @@ var app = app || {};
   };
 
 
-  // bookView.initAddPage = function(ctx){
-  //   console.log('add');
-  //   show('add');
-  // };
+  bookView.initAddPage = function(ctx){
+    console.log('add');
+    show('add');
+  };
 
-  // bookView.initBookPage = function(ctx){
-  //   console.log('view book ' + ctx.params);
-  //   $('#book').empty();
-  //   app.Book.all.forEach(book => {
-  //     if(parseInt(book.book_id) === parseInt(ctx.params.id)){
-  //       $('#book').append(book.detailToHtml());
-  //     }
-  //   });
-  // };
+  bookView.initBookPage = function(ctx){
+    console.log('view book ', ctx.params.id);
+    $('#book').empty();
+    show('book');
+    app.Book.all.forEach(book => {
+      if(parseInt(book.book_id) === parseInt(ctx.params.id)){
+        $('#book').append(book.detailToHtml());
+      }
+    });
+  };
 
   // $('#add form').on('submit', createNewBook);
   // function createNewBook(e){
@@ -54,6 +55,6 @@ var app = app || {};
 
   // }
 
-  module.bookView = booksView;
+  module.bookView = bookView;
 
 })(app);
