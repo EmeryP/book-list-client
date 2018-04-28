@@ -1,5 +1,3 @@
-# book-list-client
-Week 3 project for Code Fellows 301
 
 # Project Name
 Book App
