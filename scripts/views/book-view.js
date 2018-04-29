@@ -15,6 +15,7 @@ var app = app || {};
     console.log('index');
     $('#items ul').empty();
     show('items');
+    // show('add');
     app.Book.all.forEach(book =>
       $('#items ul').append(book.toHtml())
     );
@@ -26,10 +27,8 @@ var app = app || {};
     show('add');
   };
 
-
-  //does this need an event listener??? no, it's a page js thing
   bookView.initBookPage = function(ctx){
-    // console.log('view book ', ctx.params.id);
+
     $('#book').empty();
     show('book');
     // app.Book.all.forEach(book => {
@@ -41,23 +40,22 @@ var app = app || {};
     $('#book').append(template(ctx));
   };
 
-  // $('#add form').on('submit', createNewBook);
-  // function createNewBook(e){
-  //   e.preventDefault();
-  //   console.log(e.target.title.value);
-  //   let book = {
-  //     title: e.target.title.value,
-  //     author: e.target.author.value,
-  //     isbn: e.target.isbn.value,
-  //     image_url: e.target.image_url.value,
-  //     description: e.target.description.value
-  //   };
+  $('#add-form').on('submit', createNewBook);
+  function createNewBook(e){
+    e.preventDefault();
 
-  //   $.post(`${ENV.apiUrl}/api/v1/books`, book)
-  //     .then(app.Book.fetchAll(bookView.initIndexPage))
-  //     .catch(console.error);
+    let book = {
+      title: e.target.title.value,
+      author: e.target.author.value,
+      isbn: e.target.isbn.value,
+      image_url: e.target.image_url.value,
+      description: e.target.description.value
+    };
 
-  // }
+    $.post(`${ENV.apiUrl}/api/v1/books`, book)
+      .then(app.Book.fetchAll(bookView.initIndexPage))
+      .catch(console.error);
+  }
 
   module.bookView = bookView;
 
