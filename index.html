@@ -13,10 +13,14 @@
     
     <!-- Application Templates -->
     <script type="text/x-handlebars-template" id="book-template">
-      <li>
-        <a href="/books/{{id}}">{{title}}</a>
-        <h2>{{author}}</h2>
-        <img src="{{image_url}}">
+      <li class="book-items">
+        <div class="book-container">
+          <img src="{{image_url}}">
+          <div class="book-overlay">
+            <a href="/books/{{id}}">{{title}}</a>
+            <h2>{{author}}</h2>
+          </div>
+        </div>
       </li>
     </script>
 
@@ -34,7 +38,8 @@
   </head>
   <body>
     <header>
-      
+      <img src="codefellowslogo.png" alt="">
+      <h1 id="appTitle">books app</h1>
     </header>
     <main>
       <section id="items" class="container">
@@ -46,7 +51,7 @@
       </section>
 
       <section id="add" class="container">
-        <form action="">
+        <form id="add-form" action="">
           <input type="text" name="title" placeholder="title" />
           <input type="text" name="author" placeholder="author" />
           <input type="text" name="isbn" placeholder="isbn" />

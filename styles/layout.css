@@ -1,0 +1,64 @@
+header{
+  height: 100px;
+  background: #484647;
+}
+
+header img{
+  height: 75px;
+  float: left;
+  margin: 12.5px 0;
+}
+
+#appTitle{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  float: left;
+  line-height: 100px;
+  color: #cfcfcf;
+}
+
+.book-items{
+  background: #9B9B9B;
+  margin: 6% 3%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  position: relative;
+}
+
+.book-container {
+  margin: 0 auto;
+}
+
+.book-container img{
+  min-width: 100%;
+  max-height: 500px;
+}
+
+.book-overlay{
+  background: #4A4A4A;
+  display: block;
+  width: inherit;
+  height: 30%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.book-overlay h2 {
+  font-family: inherit;
+  padding: 3%;
+  font-size: 17px;
+  font-style: italic;
+  color: #cfcfcf;
+}
+
+.book-overlay a {
+  font-family: inherit;
+  padding: 3%;
+  font-size: 20px;
+  text-decoration: none;
+  color: #cfcfcf;
+}
+
