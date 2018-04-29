@@ -17,7 +17,7 @@ The book app is an app that can function locally on a users machine as well as c
 
 Tools and technologies used include: 
 Languages: CSS, HTML, JavaScript
-Libraries: Handlebars.js, jQuery, Page.js, Node.js
+Libraries: Handlebars.js, jQuery, Page.js, Node.js(express, postgres, cors)
 Hosting: Live Server hosts local client, Nodemon hosts local server, GitHub Pages hosts remote client, Heroku hosts remote server
 
 ## Change Log
@@ -32,6 +32,8 @@ Hosting: Live Server hosts local client, Nodemon hosts local server, GitHub Page
 
 4/26/2018 2:00pm: Worked out bugs in newly coded pages.
  
+4/28/2018 7:30pm: CSS added, detail page view functioning properly.
+
 4/28/2018 
 
 ## Credits and Collaborations
