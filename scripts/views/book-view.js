@@ -21,12 +21,6 @@ var app = app || {};
     );
   };
 
-
-  bookView.initAddPage = function(ctx){
-    console.log('add');
-    show('add');
-  };
-
   bookView.initBookPage = function(ctx){
 
     $('#book').empty();
@@ -40,22 +34,42 @@ var app = app || {};
     $('#book').append(template(ctx));
   };
 
-  $('#add-form').on('submit', createNewBook);
-  function createNewBook(e){
-    e.preventDefault();
+  bookView.initCreateFormPage = function() {
+    console.log('I come from the create view');
 
-    let book = {
-      title: e.target.title.value,
-      author: e.target.author.value,
-      isbn: e.target.isbn.value,
-      image_url: e.target.image_url.value,
-      description: e.target.description.value
-    };
+    $('create-form').empty();
+    show('create-view');
+    $('create-form').on('submit', function(e){
+      e.preventDefault();
 
-    $.post(`${ENV.apiUrl}/api/v1/books`, book)
-      .then(app.Book.fetchAll(bookView.initIndexPage))
-      .catch(console.error);
-  }
+      let book = {
+        title: e.target.title.value,
+        author: e.target.author.value,
+        isbn: e.target.isbn.value,
+        image_url: e.target.image_url.value,
+        description: e.target.description.value,
+      };
+      module.Book.create(book);
+    });
+  };
+
+
+  // $('#add-form').on('submit', createNewBook);
+  // function createNewBook(e){
+  //   e.preventDefault();
+
+  //   let book = {
+  //     title: e.target.title.value,
+  //     author: e.target.author.value,
+  //     isbn: e.target.isbn.value,
+  //     image_url: e.target.image_url.value,
+  //     description: e.target.description.value
+  //   };
+
+  //   $.post(`${ENV.apiUrl}/api/v1/books`, book)
+  //     .then(app.Book.fetchAll(bookView.initIndexPage))
+  //     .catch(console.error);
+  // }
 
   module.bookView = bookView;
 

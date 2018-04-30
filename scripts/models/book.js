@@ -50,20 +50,21 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
   };
 
   Book.create = book => {
-    $.post(`${ENV.apiUrl}/books/add`, book)
+    console.log('i come from the create func');
+    $.post(`${ENV.apiUrl}/api/v1/books`, book)
       .then(() => page('/'))
       .catch(errorCallback);
   };
 
-  Book.update = (book, id) => {
-    $.ajax({
-      url: `${ENV.apiUrl}/api/v1/books${id}`,
-      method: 'PUT',
-      data: book,
-    })
-      .then(() => page(`/books/${id}`))
-      .catch(errorCallback);
-  };
+  // Book.update = (book, id) => {
+  //   $.ajax({
+  //     url: `${ENV.apiUrl}/api/v1/books${id}`,
+  //     method: 'PUT',
+  //     data: book,
+  //   })
+  //     .then(() => page(`/books/${id}`))
+  //     .catch(errorCallback);
+  // };
 
   function errorCallback(err){
     console.log(err);

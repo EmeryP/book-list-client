@@ -40,6 +40,12 @@
     <header>
       <img src="codefellowslogo.png" alt="">
       <h1 id="appTitle">books app</h1>
+      <nav class="nav-menu">
+          <ul>
+            <li><a href="/">home</a></li>
+            <li><a href="/books/new">add book</a></li>
+          </ul>
+        </nav>
     </header>
     <main>
       <section id="items" class="container">
@@ -50,8 +56,9 @@
 
       </section>
 
-      <section id="add" class="container">
-        <form id="add-form" action="">
+      <section id="create-view" class="container">
+        <h2 class="view-title">add a new book</h2>
+        <form class="create-form">
           <input type="text" name="title" placeholder="title" />
           <input type="text" name="author" placeholder="author" />
           <input type="text" name="isbn" placeholder="isbn" />
