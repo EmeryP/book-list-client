@@ -9,7 +9,19 @@ Book App
 The book app was built to provide a platform for users to easily search for and learn about books they may want to read. 
 
 ## Getting Started
-A user can put the following URL in their browser and access the site: https://emery-jason-book-app.github.io/book-list-client/ 
+Typically, a user would paste the following URL in their browser and access the site: https://emery-jason-book-app.github.io/book-list-client/. However, until this point we have been unable to get our remote client and server talking so it will require more work to get to that point. 
+
+For now you'll have to clone both client and server repos to your local machine. Once cloned, open the code, do an "npm i" to install the dependent node.js packages. 
+
+Once installed, paste the following commands into your terminal window for testing locally, replacing variables where necessary:
+export PORT=3000
+export CLIENT_URL=http://localhost:8080
+Mac:     export DATABASE_URL=postgres://localhost:5432/books_app
+Windows: export DATABASE_URL=postgres://USER:PASSWORD@localhost:5432/books_app
+
+Once this is complete, from your terminal window run live-server while in your client side folder and nodemon while in your server side folder.
+
+You'll also have to install the books data to your local postgres database as well from our database so in that case it may be best to ask me if I can show the project to you.
 
 ## Architecture
 
@@ -18,7 +30,7 @@ The book app is an app that can function locally on a users machine as well as c
 Tools and technologies used include: 
 Languages: CSS, HTML, JavaScript
 Libraries: Handlebars.js, jQuery, Page.js, Node.js(express, postgres, cors)
-Hosting: Live Server hosts local client, Nodemon hosts local server, GitHub Pages hosts remote client, Heroku hosts remote server
+Hosting: Live Server hosts local client, Postgres hosts local database, GitHub Pages hosts remote client, Heroku hosts remote database
 
 ## Change Log
 
@@ -34,9 +46,16 @@ Hosting: Live Server hosts local client, Nodemon hosts local server, GitHub Page
  
 4/28/2018 7:30pm: CSS added, detail page view functioning properly.
 
-4/28/2018 
-
 ## Credits and Collaborations
 The 301 instructional staff and TA's John, Sam, Nicholas, Melanie, Noah
 
-Multiple resources from the internet
+Multiple resources from the internet, to name a few:
+
+https://developer.mozilla.org/en-US/
+
+https://handlebarsjs.com/
+
+https://oscarotero.com/jquery/
+
+https://www.w3schools.com/
+
